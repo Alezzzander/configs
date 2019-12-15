@@ -1,0 +1,11 @@
+#!/bin/bash
+ 
+STATE=$(amixer sget 'Analog Output',0 | grep Item0 | cut -d "'" -f2)
+ 
+if [ "$STATE" = "Stereo Headphones" ]
+then
+  amixer sset 'Analog Output',0 'Stereo Headphones FP' > /dev/null
+else
+  amixer sset 'Analog Output',0 'Stereo Headphones' > /dev/null
+fi
+~            
